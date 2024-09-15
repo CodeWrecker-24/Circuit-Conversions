@@ -35,6 +35,14 @@
             <img id="delta-img" src="https://resistors.vercel.app/Images/delta.png" class="image-selector" alt="Delta" width="150">
             <h4>Delta</h4>
         </div>
+        <div class="col-md-6 text-center">
+            <img id="series-img" src="https://resistors.vercel.app/Images/series.png" class="image-selector" alt="Series" width="150">
+            <h4>Series</h4>
+        </div>
+        <div class="col-md-6 text-center">
+            <img id="parallel-img" src="https://resistors.vercel.app/Images/parallel.png" class="image-selector" alt="Parallel" width="150">
+            <h4>Parallel</h4>
+        </div>
     </div>
 
     <div id="star-form" class="form-container mt-4">
@@ -71,31 +79,93 @@
         <button id="delta-submit" class="btn btn-primary">Convert to Star</button>
     </div>
 
+    <div id="series-form" class="form-container mt-4">
+        <h3>Enter Series Values</h3>
+        <div class="mb-3">
+            <label for="rs1" class="form-label">R1:</label>
+            <input type="number" id="rs1" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="rs2" class="form-label">R2:</label>
+            <input type="number" id="rs2" class="form-control">
+        </div>
+        <button id="series-submit" class="btn btn-primary">Combine Series Resistors</button>
+    </div>
+
+    <div id="parallel-form" class="form-container mt-4">
+        <h3>Enter Parallel Values</h3>
+        <div class="mb-3">
+            <label for="rp1" class="form-label">R1:</label>
+            <input type="number" id="rp1" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="rp2" class="form-label">R2:</label>
+            <input type="number" id="rp2" class="form-control">
+        </div>
+        <button id="parallel-submit" class="btn btn-primary">Combine Parallel Resistors</button>
+    </div>
+
     <div id="output" class="mt-4">
-        <!-- Result will be displayed here -->
+        <!-- Result will be displayed here -->  
     </div>
 </div>
 
 <script>
     const starImg = document.getElementById('star-img');
     const deltaImg = document.getElementById('delta-img');
+    const seriesImg = document.getElementById('series-img');
+    const parallelImg = document.getElementById('parallel-img');
     const starForm = document.getElementById('star-form');
     const deltaForm = document.getElementById('delta-form');
+    const seriesForm = document.getElementById('series-form');
+    const parallelForm = document.getElementById('parallel-form');
     const outputDiv = document.getElementById('output');
 
     starImg.addEventListener('click', function() {
         starForm.classList.add('active');
         deltaForm.classList.remove('active');
+        seriesForm.classList.remove('active');
+        parallelForm.classList.remove('active');
         starImg.classList.add('active');
         deltaImg.classList.remove('active');
+        seriesImg.classList.remove('active');
+        parallelImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
     deltaImg.addEventListener('click', function() {
         deltaForm.classList.add('active');
         starForm.classList.remove('active');
+        seriesForm.classList.remove('active');
+        parallelForm.classList.remove('active');
         deltaImg.classList.add('active');
         starImg.classList.remove('active');
+        seriesImg.classList.remove('active');
+        parallelImg.classList.remove('active');
+        outputDiv.innerHTML = ''; // Clear output
+    });
+
+    seriesImg.addEventListener('click', function() {
+        seriesForm.classList.add('active');
+        deltaForm.classList.remove('active');
+        starForm.classList.remove('active');
+        parallelForm.classList.remove('active');
+        seriesImg.classList.add('active');
+        deltaImg.classList.remove('active');
+        starImg.classList.remove('active');
+        parallelImg.classList.remove('active');
+        outputDiv.innerHTML = ''; // Clear output
+    });
+
+    parallelImg.addEventListener('click', function() {
+        parallelForm.classList.add('active');
+        deltaForm.classList.remove('active');
+        starForm.classList.remove('active');
+        seriesForm.classList.remove('active');
+        parallelImg.classList.add('active');
+        deltaImg.classList.remove('active');
+        starImg.classList.remove('active');
+        seriesImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
@@ -131,6 +201,34 @@
         const rc = (rbc * rac) / (rab + rac + rbc);
 
         outputDiv.innerHTML = `<div class="alert alert-success">Ra = ${ra.toFixed(2)}<br>Rb = ${rb.toFixed(2)}<br>Rc = ${rc.toFixed(2)}</div>`;
+    });
+
+    document.getElementById('series-submit').addEventListener('click', function() { //NOT DONE
+        const rs1 = parseFloat(document.getElementById('rs1').value);
+        const rs2 = parseFloat(document.getElementById('rs2').value);
+
+        if (isNaN(rs1) || isNaN(rs2)) {
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for R1 and R2.</div>';
+            return;
+        }
+
+        const req = (rs1+rs2);
+
+        outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
+    });
+
+    document.getElementById('parallel-submit').addEventListener('click', function() { //NOT DONE
+        const rp1 = parseFloat(document.getElementById('rp1').value);
+        const rp2 = parseFloat(document.getElementById('rp2').value);
+
+        if (isNaN(rp1) || isNaN(rp2)) {
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for R1 and R2.</div>';
+            return;
+        }
+
+        const req = (rp1*rp2)/(rp1+rp2);
+
+        outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
     });
 </script>
 
