@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resistor Conversions</title>
+    <title>Circuit Conversions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .image-selector {
@@ -25,7 +25,7 @@
 <body>
 
 <div class="container my-5">
-    <h1 class="text-center mb-4">Resistor Conversion</h1>
+    <h1 class="text-center mb-4">Circuit Conversions</h1>
     <div class="row">
         <div class="col-md-6 text-center">
             <img id="star-img" src="https://resistors.vercel.app/Images/star.png" class="image-selector" alt="Star" width="150">
@@ -42,6 +42,14 @@
         <div class="col-md-6 text-center">
             <img id="parallel-img" src="https://resistors.vercel.app/Images/parallel.png" class="image-selector" alt="Parallel" width="150">
             <h4>Parallel</h4>
+        </div>
+        <div class="col-md-6 text-center">
+            <img id="Vs-img" src="Images/Vs.png" class="image-selector" alt="VS" width="150">
+            <h4>Vs</h4>
+        </div>
+        <div class="col-md-6 text-center">
+            <img id="Is-img" src="Images/Is.png" class="image-selector" alt="IS" width="150">
+            <h4>Is</h4>
         </div>
     </div>
 
@@ -105,6 +113,32 @@
         <button id="parallel-submit" class="btn btn-primary">Combine Parallel Resistors</button>
     </div>
 
+    <div id="Vs-form" class="form-container mt-4">
+        <h3>Enter Vs Values</h3>
+        <div class="mb-3">
+            <label for="V" class="form-label">Vs:</label>
+            <input type="number" id="V" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="R" class="form-label">R:</label>
+            <input type="number" id="R" class="form-control">
+        </div>
+        <button id="Vs-submit" class="btn btn-primary">Convert to current source</button>
+    </div>
+
+    <div id="Is-form" class="form-container mt-4">
+        <h3>Enter Is Values</h3>
+        <div class="mb-3">
+            <label for="I" class="form-label">Is:</label>
+            <input type="number" id="I" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="R" class="form-label">R:</label>
+            <input type="number" id="R" class="form-control">
+        </div>
+        <button id="Is-submit" class="btn btn-primary">Convert to voltage source</button>
+    </div>
+
     <div id="output" class="mt-4">
         <!-- Result will be displayed here -->  
     </div>
@@ -115,10 +149,14 @@
     const deltaImg = document.getElementById('delta-img');
     const seriesImg = document.getElementById('series-img');
     const parallelImg = document.getElementById('parallel-img');
+    const VsImg = document.getElementById('Vs-img');
+    const IsImg = document.getElementById('Is-img');
     const starForm = document.getElementById('star-form');
     const deltaForm = document.getElementById('delta-form');
     const seriesForm = document.getElementById('series-form');
     const parallelForm = document.getElementById('parallel-form');
+    const VsForm = document.getElementById('Vs-form');
+    const IsForm = document.getElementById('Is-form');
     const outputDiv = document.getElementById('output');
 
     starImg.addEventListener('click', function() {
@@ -126,10 +164,14 @@
         deltaForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');
+        VsForm.classList.remove('active');
+        IsForm.classList.remove('active');
         starImg.classList.add('active');
         deltaImg.classList.remove('active');
         seriesImg.classList.remove('active');
         parallelImg.classList.remove('active');
+        VsImg.classList.remove('active');
+        IsImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
@@ -138,10 +180,14 @@
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');
+        VsForm.classList.remove('active');
+        IsForm.classList.remove('active');
         deltaImg.classList.add('active');
         starImg.classList.remove('active');
         seriesImg.classList.remove('active');
         parallelImg.classList.remove('active');
+        VsImg.classList.remove('active');
+        IsImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
@@ -150,10 +196,14 @@
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         parallelForm.classList.remove('active');
+        VsForm.classList.remove('active');
+        IsForm.classList.remove('active');
         seriesImg.classList.add('active');
         deltaImg.classList.remove('active');
         starImg.classList.remove('active');
         parallelImg.classList.remove('active');
+        VsImg.classList.remove('active');
+        IsImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
@@ -162,10 +212,46 @@
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
+        VsForm.classList.remove('active');
+        IsForm.classList.remove('active');
         parallelImg.classList.add('active');
         deltaImg.classList.remove('active');
         starImg.classList.remove('active');
         seriesImg.classList.remove('active');
+        VsImg.classList.remove('active');
+        IsImg.classList.remove('active');
+        outputDiv.innerHTML = ''; // Clear output
+    });
+
+    VsImg.addEventListener('click', function() {
+        VsForm.classList.add('active');
+        deltaForm.classList.remove('active');
+        starForm.classList.remove('active');
+        seriesForm.classList.remove('active');
+        parallelForm.classList.remove('active');        
+        IsForm.classList.remove('active');
+        VsImg.classList.add('active');
+        deltaImg.classList.remove('active');
+        starImg.classList.remove('active');
+        seriesImg.classList.remove('active');
+        parallelImg.classList.remove('active');
+        IsImg.classList.remove('active');
+        outputDiv.innerHTML = ''; // Clear output
+    });
+
+    IsImg.addEventListener('click', function() {
+        IsForm.classList.add('active');
+        deltaForm.classList.remove('active');
+        starForm.classList.remove('active');
+        seriesForm.classList.remove('active');
+        parallelForm.classList.remove('active');        
+        VsForm.classList.remove('active');
+        IsImg.classList.add('active');
+        deltaImg.classList.remove('active');
+        starImg.classList.remove('active');
+        seriesImg.classList.remove('active');
+        parallelImg.classList.remove('active');
+        VsImg.classList.remove('active');
         outputDiv.innerHTML = ''; // Clear output
     });
 
@@ -203,7 +289,7 @@
         outputDiv.innerHTML = `<div class="alert alert-success">Ra = ${ra.toFixed(2)}<br>Rb = ${rb.toFixed(2)}<br>Rc = ${rc.toFixed(2)}</div>`;
     });
 
-    document.getElementById('series-submit').addEventListener('click', function() { //NOT DONE
+    document.getElementById('series-submit').addEventListener('click', function() {
         const rs1 = parseFloat(document.getElementById('rs1').value);
         const rs2 = parseFloat(document.getElementById('rs2').value);
 
@@ -217,7 +303,7 @@
         outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
     });
 
-    document.getElementById('parallel-submit').addEventListener('click', function() { //NOT DONE
+    document.getElementById('parallel-submit').addEventListener('click', function() {
         const rp1 = parseFloat(document.getElementById('rp1').value);
         const rp2 = parseFloat(document.getElementById('rp2').value);
 
@@ -230,6 +316,35 @@
 
         outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
     });
+
+    document.getElementById('Vs-submit').addEventListener('click', function() { //NOT DONE
+        const V = parseFloat(document.getElementById('V').value);
+        const R = parseFloat(document.getElementById('R').value);
+
+        if (isNaN(V) || isNaN(R)) {
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for V and R.</div>';
+            return;
+        }
+
+        const I = (V/R);
+
+        outputDiv.innerHTML = `<div class="alert alert-success">Is = ${I.toFixed(2)}</div>`;
+    });
+
+    document.getElementById('Is-submit').addEventListener('click', function() { //NOT DONE
+        const I = parseFloat(document.getElementById('I').value);
+        const R = parseFloat(document.getElementById('R').value);
+
+        if (isNaN(I) || isNaN(R)) {
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for I and R.</div>';
+            return;
+        }
+
+        const V = (I*R);
+
+        outputDiv.innerHTML = `<div class="alert alert-success">Vs = ${V.toFixed(2)}</div>`;
+    });
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
