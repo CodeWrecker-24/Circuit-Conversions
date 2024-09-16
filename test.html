@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circuit Conversions</title>
@@ -26,7 +24,8 @@
 
 <div class="container my-5">
     <h1 class="text-center mb-4">Circuit Conversions</h1>
-    <div class="row">
+    
+    <div class="row pb-5"> <!-- Add margin below this row -->
         <div class="col-md-6 text-center">
             <img id="star-img" src="https://resistors.vercel.app/Images/star.png" class="image-selector" alt="Star" width="150">
             <h4>Star</h4>
@@ -44,27 +43,39 @@
             <h4>Parallel</h4>
         </div>
         <div class="col-md-6 text-center">
-            <img id="Vs-img" src="https://resistors.vercel.app/Images/Vs.png" class="image-selector" alt="VS" width="150">
+            <img id="Vs-img" src="Images/Vs.png" class="image-selector active" alt="VS" width="150">
             <h4>Vs</h4>
         </div>
         <div class="col-md-6 text-center">
-            <img id="Is-img" src="https://resistors.vercel.app/Images/Is.png" class="image-selector" alt="IS" width="150">
+            <img id="Is-img" src="Images/Is.png" class="image-selector" alt="IS" width="150">
             <h4>Is</h4>
+        </div>
+    </div>
+
+    <div class="row pt-5"> <!-- Add margin below this row -->
+        <div class="col-md-4 text-center">
+            <img id="initial-img" src="https://resistors.vercel.app/Images/star.png" alt="Initial" width="200">
+        </div>
+        <div class="col-md-4 text-center">
+            <img id="arrows-img" src="Images/arrows.png" alt="Arrows" width="200">
+        </div>
+        <div class="col-md-4 text-center">
+            <img id="final-img" src="https://resistors.vercel.app/Images/delta.png" alt="Final" width="200">
         </div>
     </div>
 
     <div id="star-form" class="form-container mt-4">
         <h3>Enter Star Values</h3>
         <div class="mb-3">
-            <label for="ra" class="form-label">Ra:</label>
+            <label for="ra" class="form-label">RA:</label>
             <input type="number" id="ra" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="rb" class="form-label">Rb:</label>
+            <label for="rb" class="form-label">RB:</label>
             <input type="number" id="rb" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="rc" class="form-label">Rc:</label>
+            <label for="rc" class="form-label">RC:</label>
             <input type="number" id="rc" class="form-control">
         </div>
         <button id="star-submit" class="btn btn-primary">Convert to Delta</button>
@@ -73,15 +84,15 @@
     <div id="delta-form" class="form-container mt-4">
         <h3>Enter Delta Values</h3>
         <div class="mb-3">
-            <label for="rab" class="form-label">Rab:</label>
+            <label for="rab" class="form-label">RAB:</label>
             <input type="number" id="rab" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="rac" class="form-label">Rac:</label>
+            <label for="rac" class="form-label">RAC:</label>
             <input type="number" id="rac" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="rbc" class="form-label">Rbc:</label>
+            <label for="rbc" class="form-label">RBC:</label>
             <input type="number" id="rbc" class="form-control">
         </div>
         <button id="delta-submit" class="btn btn-primary">Convert to Star</button>
@@ -113,14 +124,14 @@
         <button id="parallel-submit" class="btn btn-primary">Combine Parallel Resistors</button>
     </div>
 
-    <div id="Vs-form" class="form-container mt-4">
+    <div id="Vs-form" class="form-container mt-4 active">
         <h3>Enter Vs Values</h3>
         <div class="mb-3">
             <label for="V" class="form-label">Vs:</label>
             <input type="number" id="V" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="R" class="form-label">R:</label>
+            <label for="R" class="form-label">Rs:</label>
             <input type="number" id="R" class="form-control">
         </div>
         <button id="Vs-submit" class="btn btn-primary">Convert to current source</button>
@@ -133,18 +144,19 @@
             <input type="number" id="I" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="R" class="form-label">R:</label>
+            <label for="R" class="form-label">Rs:</label>
             <input type="number" id="R" class="form-control">
         </div>
         <button id="Is-submit" class="btn btn-primary">Convert to voltage source</button>
     </div>
 
-    <div id="output" class="mt-4">
-        <!-- Result will be displayed here -->  
-    </div>
+    <div id="output" class="mt-4"></div>
 </div>
 
 <script>
+    const InitialImg = document.getElementById('initial-img');
+    const FinalImg = document.getElementById('final-img');
+    const arrowsImg = document.getElementById('arrows-img');
     const starImg = document.getElementById('star-img');
     const deltaImg = document.getElementById('delta-img');
     const seriesImg = document.getElementById('series-img');
@@ -159,6 +171,11 @@
     const IsForm = document.getElementById('Is-form');
     const outputDiv = document.getElementById('output');
 
+    InitialImg.style.display = 'none';
+    FinalImg.style.display = 'none';
+    arrowsImg.style.display = 'none';
+
+
     starImg.addEventListener('click', function() {
         starForm.classList.add('active');
         deltaForm.classList.remove('active');
@@ -172,7 +189,12 @@
         parallelImg.classList.remove('active');
         VsImg.classList.remove('active');
         IsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = starImg.src;
+        FinalImg.src = deltaImg.src;
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     deltaImg.addEventListener('click', function() {
@@ -188,7 +210,12 @@
         parallelImg.classList.remove('active');
         VsImg.classList.remove('active');
         IsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = deltaImg.src;
+        FinalImg.src = starImg.src;
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     seriesImg.addEventListener('click', function() {
@@ -204,7 +231,12 @@
         parallelImg.classList.remove('active');
         VsImg.classList.remove('active');
         IsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = seriesImg.src;
+        FinalImg.src = 'Images/resistor.png';
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     parallelImg.addEventListener('click', function() {
@@ -220,7 +252,12 @@
         seriesImg.classList.remove('active');
         VsImg.classList.remove('active');
         IsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = parallelImg.src;
+        FinalImg.src = 'Images/resistor.png';
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     VsImg.addEventListener('click', function() {
@@ -236,7 +273,12 @@
         seriesImg.classList.remove('active');
         parallelImg.classList.remove('active');
         IsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = VsImg.src;
+        FinalImg.src = IsImg.src;
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     IsImg.addEventListener('click', function() {
@@ -252,7 +294,12 @@
         seriesImg.classList.remove('active');
         parallelImg.classList.remove('active');
         VsImg.classList.remove('active');
-        outputDiv.innerHTML = ''; // Clear output
+        InitialImg.src = IsImg.src;
+        FinalImg.src = VsImg.src;
+        InitialImg.style.display = 'block';
+        FinalImg.style.display = 'block';
+        arrowsImg.style.display = 'block';
+        outputDiv.innerHTML = ''; 
     });
 
     document.getElementById('star-submit').addEventListener('click', function() {
@@ -261,7 +308,7 @@
         const rc = parseFloat(document.getElementById('rc').value);
 
         if (isNaN(ra) || isNaN(rb) || isNaN(rc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Ra, Rb, and Rc.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for RA, RB, and RC.</div>';
             return;
         }
 
@@ -269,7 +316,7 @@
         const rac = ((ra * rb) + (rb * rc) + (ra * rc)) / rb;
         const rbc = ((ra * rb) + (rb * rc) + (ra * rc)) / ra;
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Rab = ${rab.toFixed(2)}<br>Rac = ${rac.toFixed(2)}<br>Rbc = ${rbc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success">RAB = ${rab.toFixed(2)}<br>RAC = ${rac.toFixed(2)}<br>RBC = ${rbc.toFixed(2)}</div>`;
     });
 
     document.getElementById('delta-submit').addEventListener('click', function() {
@@ -278,7 +325,7 @@
         const rbc = parseFloat(document.getElementById('rbc').value);
 
         if (isNaN(rab) || isNaN(rac) || isNaN(rbc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Rab, Rac, and Rbc.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for RAB, RAC, and RBC.</div>';
             return;
         }
 
@@ -286,7 +333,7 @@
         const rb = (rab * rbc) / (rab + rac + rbc);
         const rc = (rbc * rac) / (rab + rac + rbc);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Ra = ${ra.toFixed(2)}<br>Rb = ${rb.toFixed(2)}<br>Rc = ${rc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success">RA = ${ra.toFixed(2)}<br>RB = ${rb.toFixed(2)}<br>RC = ${rc.toFixed(2)}</div>`;
     });
 
     document.getElementById('series-submit').addEventListener('click', function() {
@@ -300,7 +347,7 @@
 
         const req = (rs1+rs2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success">R = ${req.toFixed(2)}</div>`;
     });
 
     document.getElementById('parallel-submit').addEventListener('click', function() {
@@ -314,15 +361,15 @@
 
         const req = (rp1*rp2)/(rp1+rp2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Req = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success">R = ${req.toFixed(2)}</div>`;
     });
 
-    document.getElementById('Vs-submit').addEventListener('click', function() { //NOT DONE
+    document.getElementById('Vs-submit').addEventListener('click', function() {
         const V = parseFloat(document.getElementById('V').value);
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(V) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for V and R.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Vs and Rs.</div>';
             return;
         }
 
@@ -331,12 +378,12 @@
         outputDiv.innerHTML = `<div class="alert alert-success">Is = ${I.toFixed(2)}</div>`;
     });
 
-    document.getElementById('Is-submit').addEventListener('click', function() { //NOT DONE
+    document.getElementById('Is-submit').addEventListener('click', function() {
         const I = parseFloat(document.getElementById('I').value);
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(I) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for I and R.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Is and Rs.</div>';
             return;
         }
 
@@ -348,5 +395,5 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+</body></html>
