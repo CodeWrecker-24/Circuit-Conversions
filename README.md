@@ -1,2 +1,2 @@
-# resistors
-making resistor combinations easier
+# Circuit-Conversions
+Making Circuit Conversions Easier.
