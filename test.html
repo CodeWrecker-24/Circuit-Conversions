@@ -10,7 +10,7 @@
             border: 2px solid transparent;
         }
         .image-selector.active {
-            border-color: #007bff;
+            border-color: green;
         }
         .form-container {
             display: none;
@@ -20,134 +20,142 @@
         }
     </style>
 </head>
-<body>
+<body style = 'background-color: black;'>
 
-<div class="container my-5">
-    <h1 class="text-center mb-4">Circuit Conversions</h1>
+
+<div class="container-fluid my-5">
+    <h1 class="text-center mb-4" style='color:green; font-size: 600%;'>Circuit Conversions</h1>
     
-    <div class="row pb-5">
-        <div class="col-6 col-md-6 text-center">
-            <img id="star-img" src="Images/star.png" class="image-selector" alt="Star" width="150">
-            <h4>Star</h4>
+    <div class="row pb-5" style="width: 25%; float:left;">
+        <div class="col text-center">
+            
+            <button id="star-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>Star</h4>
+            </button>
         </div>
-        <div class="col-6 col-md-6 text-center">
-            <img id="delta-img" src="Images/delta.png" class="image-selector" alt="Delta" width="150">
-            <h4>Delta</h4>
+        <div class="col text-center">
+            <button id="delta-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>Delta</h4>
+            </button>
         </div>
-        <div class="col-6 col-md-6 text-center">
-            <img id="series-img" src="Images/series.png" class="image-selector" alt="Series" width="150">
-            <h4>Series</h4>
+        <div class="col text-center">
+            <button id="series-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>Series</h4>
+            </button>
         </div>
-        <div class="col-6 col-md-6 text-center">
-            <img id="parallel-img" src="Images/parallel.png" class="image-selector" alt="Parallel" width="150">
-            <h4>Parallel</h4>
+        <div class="col text-center">
+            <button id="parallel-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>Parallel</h4>
+            </button>
         </div>
-        <div class="col-6 col-md-6 text-center">
-            <img id="Vs-img" src="Images/Vs.png" class="image-selector" alt="VS" width="150">
-            <h4>Vs</h4>
+        <div class="col text-center">
+            <button id="Vs-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>V-Source</h4>
+            </button>
         </div>
-        <div class="col-6 col-md-6 text-center">
-            <img id="Is-img" src="Images/Is.png" class="image-selector" alt="IS" width="150">
-            <h4>Is</h4>
-        </div>
-    </div>
-
-    <div class="row pt-5"> <!-- Add margin below this row -->
-        <div class="col-4 col-md-4 text-center">
-            <img id="initial-img" src="Images/star.png" alt="Initial" width="100">
-        </div>
-        <div class="col-4 col-md-4 text-center">
-            <img id="arrows-img" src="Images/arrows.png" alt="Arrows" width="100">
-        </div>
-        <div class="col-4 col-md-4 text-center">
-            <img id="final-img" src="Images/delta.png" alt="Final" width="100">
+        <div class="col text-center">
+            <button id="Is-btn" class="btn btn-outline-success" style="width: 125%; height: 100%x;">
+                <h4 style='color:white; font-size:72px'>I-Source</h4>
+            </button>
         </div>
     </div>
 
-    <div id="star-form" class="form-container mt-4">
-        <h3>Enter Star Values</h3>
-        <div class="mb-3">
-            <label for="ra" class="form-label">RA:</label>
-            <input type="number" id="ra" class="form-control">
+    <div class="row pb-5" style="width: 66%; float: right;">
+        <div class="col text-center">
+            <img id="initial-img" src="Images/star.png" alt="Initial" width="300">
         </div>
-        <div class="mb-3">
-            <label for="rb" class="form-label">RB:</label>
-            <input type="number" id="rb" class="form-control">
+        <div class="col text-center">
+            <img id="arrows-img" src="Images/arrows.png" alt="Arrows" width="300">
         </div>
-        <div class="mb-3">
-            <label for="rc" class="form-label">RC:</label>
-            <input type="number" id="rc" class="form-control">
+        <div class="col text-center">
+            <img id="final-img" src="Images/delta.png" alt="Final" width="300">
         </div>
-        <button id="star-submit" class="btn btn-primary">Convert to Delta</button>
     </div>
 
-    <div id="delta-form" class="form-container mt-4">
-        <h3>Enter Delta Values</h3>
+    <div id="star-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Star Values</h3>
         <div class="mb-3">
-            <label for="rab" class="form-label">RAB:</label>
-            <input type="number" id="rab" class="form-control">
+            <label for="ra" class="form-label" style='color:green'>RA:</label>
+            <input type="number" id="ra" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="rac" class="form-label">RAC:</label>
-            <input type="number" id="rac" class="form-control">
+            <label for="rb" class="form-label" style='color:green'>RB:</label>
+            <input type="number" id="rb" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="rbc" class="form-label">RBC:</label>
-            <input type="number" id="rbc" class="form-control">
+            <label for="rc" class="form-label" style='color:green'>RC:</label>
+            <input type="number" id="rc" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
-        <button id="delta-submit" class="btn btn-primary">Convert to Star</button>
+        <button id="star-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to Delta</button>
     </div>
 
-    <div id="series-form" class="form-container mt-4">
-        <h3>Enter Series Values</h3>
+    <div id="delta-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Delta Values</h3>
         <div class="mb-3">
-            <label for="rs1" class="form-label">R1:</label>
-            <input type="number" id="rs1" class="form-control">
+            <label for="rab" class="form-label" style='color:green'>RAB:</label>
+            <input type="number" id="rab" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="rs2" class="form-label">R2:</label>
-            <input type="number" id="rs2" class="form-control">
+            <label for="rac" class="form-label" style='color:green'>RAC:</label>
+            <input type="number" id="rac" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
-        <button id="series-submit" class="btn btn-primary">Combine Series Resistors</button>
+        <div class="mb-3">
+            <label for="rbc" class="form-label" style='color:green'>RBC:</label>
+            <input type="number" id="rbc" class="form-control" style="background-color:seagreen; border-color: green; color:white">
+        </div>
+        <button id="delta-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to Star</button>
     </div>
 
-    <div id="parallel-form" class="form-container mt-4">
-        <h3>Enter Parallel Values</h3>
+    <div id="series-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Series Values</h3>
         <div class="mb-3">
-            <label for="rp1" class="form-label">R1:</label>
-            <input type="number" id="rp1" class="form-control">
+            <label for="rs1" class="form-label" style='color:green'>R1:</label>
+            <input type="number" id="rs1" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="rp2" class="form-label">R2:</label>
-            <input type="number" id="rp2" class="form-control">
+            <label for="rs2" class="form-label" style='color:green'>R2:</label>
+            <input type="number" id="rs2" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
-        <button id="parallel-submit" class="btn btn-primary">Combine Parallel Resistors</button>
+        <button id="series-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Combine Series Resistors</button>
     </div>
 
-    <div id="Vs-form" class="form-container mt-4">
-        <h3>Enter Vs Values</h3>
+    <div id="parallel-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Parallel Values</h3>
         <div class="mb-3">
-            <label for="V" class="form-label">Vs:</label>
-            <input type="number" id="V" class="form-control">
+            <label for="rp1" class="form-label" style='color:green'>R1:</label>
+            <input type="number" id="rp1" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="R" class="form-label">Rs:</label>
-            <input type="number" id="R" class="form-control">
+            <label for="rp2" class="form-label" style='color:green'>R2:</label>
+            <input type="number" id="rp2" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
-        <button id="Vs-submit" class="btn btn-primary">Convert to current source</button>
+        <button id="parallel-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Combine Parallel Resistors</button>
     </div>
 
-    <div id="Is-form" class="form-container mt-4">
-        <h3>Enter Is Values</h3>
+    <div id="Vs-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Vs Values</h3>
         <div class="mb-3">
-            <label for="I" class="form-label">Is:</label>
-            <input type="number" id="I" class="form-control">
+            <label for="V" class="form-label" style='color:green'>Vs:</label>
+            <input type="number" id="V" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="R" class="form-label">Rs:</label>
-            <input type="number" id="R" class="form-control">
+            <label for="R" class="form-label" style='color:green'>Rs:</label>
+            <input type="number" id="R" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
-        <button id="Is-submit" class="btn btn-primary">Convert to voltage source</button>
+        <button id="Vs-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to current source</button>
+    </div>
+
+    <div id="Is-form" class="form-container mt-4" style="width: 66%; float: right;">
+        <h3 style='color:green'>Enter Is Values</h3>
+        <div class="mb-3">
+            <label for="I" class="form-label" style='color:green'>Is:</label>
+            <input type="number" id="I" class="form-control" style="background-color:seagreen; border-color: green; color:white">
+        </div>
+        <div class="mb-3">
+            <label for="R" class="form-label" style='color:green'>Rs:</label>
+            <input type="number" id="R" class="form-control" style="background-color:seagreen; border-color: green; color:white">
+        </div>
+        <button id="Is-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to voltage source</button>
     </div>
 
     <div id="output" class="mt-4"></div>
@@ -157,12 +165,12 @@
     const InitialImg = document.getElementById('initial-img');
     const FinalImg = document.getElementById('final-img');
     const arrowsImg = document.getElementById('arrows-img');
-    const starImg = document.getElementById('star-img');
-    const deltaImg = document.getElementById('delta-img');
-    const seriesImg = document.getElementById('series-img');
-    const parallelImg = document.getElementById('parallel-img');
-    const VsImg = document.getElementById('Vs-img');
-    const IsImg = document.getElementById('Is-img');
+    const starBtn = document.getElementById('star-btn');
+    const deltaBtn = document.getElementById('delta-btn');
+    const seriesBtn = document.getElementById('series-btn');
+    const parallelBtn = document.getElementById('parallel-btn');
+    const VsBtn = document.getElementById('Vs-btn');
+    const IsBtn = document.getElementById('Is-btn');
     const starForm = document.getElementById('star-form');
     const deltaForm = document.getElementById('delta-form');
     const seriesForm = document.getElementById('series-form');
@@ -176,62 +184,62 @@
     arrowsImg.style.display = 'none';
 
 
-    starImg.addEventListener('click', function() {
+    starBtn.addEventListener('click', function() {
         starForm.classList.add('active');
         deltaForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');
         VsForm.classList.remove('active');
         IsForm.classList.remove('active');
-        starImg.classList.add('active');
-        deltaImg.classList.remove('active');
-        seriesImg.classList.remove('active');
-        parallelImg.classList.remove('active');
-        VsImg.classList.remove('active');
-        IsImg.classList.remove('active');
-        InitialImg.src = starImg.src;
-        FinalImg.src = deltaImg.src;
+        starBtn.classList.add('active');
+        deltaBtn.classList.remove('active');
+        seriesBtn.classList.remove('active');
+        parallelBtn.classList.remove('active');
+        VsBtn.classList.remove('active');
+        IsBtn.classList.remove('active');
+        InitialImg.src = 'Images/star.png';
+        FinalImg.src = 'Images/delta.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
         arrowsImg.style.display = 'block';
         outputDiv.innerHTML = ''; 
     });
 
-    deltaImg.addEventListener('click', function() {
+    deltaBtn.addEventListener('click', function() {
         deltaForm.classList.add('active');
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');
         VsForm.classList.remove('active');
         IsForm.classList.remove('active');
-        deltaImg.classList.add('active');
-        starImg.classList.remove('active');
-        seriesImg.classList.remove('active');
-        parallelImg.classList.remove('active');
-        VsImg.classList.remove('active');
-        IsImg.classList.remove('active');
-        InitialImg.src = deltaImg.src;
-        FinalImg.src = starImg.src;
+        deltaBtn.classList.add('active');
+        starBtn.classList.remove('active');
+        seriesBtn.classList.remove('active');
+        parallelBtn.classList.remove('active');
+        VsBtn.classList.remove('active');
+        IsBtn.classList.remove('active');
+        InitialImg.src = 'Images/delta.png';
+        FinalImg.src = 'Images/star.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
         arrowsImg.style.display = 'block';
         outputDiv.innerHTML = ''; 
     });
 
-    seriesImg.addEventListener('click', function() {
+    seriesBtn.addEventListener('click', function() {
         seriesForm.classList.add('active');
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         parallelForm.classList.remove('active');
         VsForm.classList.remove('active');
         IsForm.classList.remove('active');
-        seriesImg.classList.add('active');
-        deltaImg.classList.remove('active');
-        starImg.classList.remove('active');
-        parallelImg.classList.remove('active');
-        VsImg.classList.remove('active');
-        IsImg.classList.remove('active');
-        InitialImg.src = seriesImg.src;
+        seriesBtn.classList.add('active');
+        deltaBtn.classList.remove('active');
+        starBtn.classList.remove('active');
+        parallelBtn.classList.remove('active');
+        VsBtn.classList.remove('active');
+        IsBtn.classList.remove('active');
+        InitialImg.src = 'Images/series.png';
         FinalImg.src = 'Images/resistor.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
@@ -239,20 +247,20 @@
         outputDiv.innerHTML = ''; 
     });
 
-    parallelImg.addEventListener('click', function() {
+    parallelBtn.addEventListener('click', function() {
         parallelForm.classList.add('active');
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
         VsForm.classList.remove('active');
         IsForm.classList.remove('active');
-        parallelImg.classList.add('active');
-        deltaImg.classList.remove('active');
-        starImg.classList.remove('active');
-        seriesImg.classList.remove('active');
-        VsImg.classList.remove('active');
-        IsImg.classList.remove('active');
-        InitialImg.src = parallelImg.src;
+        parallelBtn.classList.add('active');
+        deltaBtn.classList.remove('active');
+        starBtn.classList.remove('active');
+        seriesBtn.classList.remove('active');
+        VsBtn.classList.remove('active');
+        IsBtn.classList.remove('active');
+        InitialImg.src = 'Images/parallel.png';
         FinalImg.src = 'Images/resistor.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
@@ -260,42 +268,42 @@
         outputDiv.innerHTML = ''; 
     });
 
-    VsImg.addEventListener('click', function() {
+    VsBtn.addEventListener('click', function() {
         VsForm.classList.add('active');
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');        
         IsForm.classList.remove('active');
-        VsImg.classList.add('active');
-        deltaImg.classList.remove('active');
-        starImg.classList.remove('active');
-        seriesImg.classList.remove('active');
-        parallelImg.classList.remove('active');
-        IsImg.classList.remove('active');
-        InitialImg.src = VsImg.src;
-        FinalImg.src = IsImg.src;
+        VsBtn.classList.add('active');
+        deltaBtn.classList.remove('active');
+        starBtn.classList.remove('active');
+        seriesBtn.classList.remove('active');
+        parallelBtn.classList.remove('active');
+        IsBtn.classList.remove('active');
+        InitialImg.src = 'Images/Vs.png';
+        FinalImg.src = 'Images/Is.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
         arrowsImg.style.display = 'block';
         outputDiv.innerHTML = ''; 
     });
 
-    IsImg.addEventListener('click', function() {
+    IsBtn.addEventListener('click', function() {
         IsForm.classList.add('active');
         deltaForm.classList.remove('active');
         starForm.classList.remove('active');
         seriesForm.classList.remove('active');
         parallelForm.classList.remove('active');        
         VsForm.classList.remove('active');
-        IsImg.classList.add('active');
-        deltaImg.classList.remove('active');
-        starImg.classList.remove('active');
-        seriesImg.classList.remove('active');
-        parallelImg.classList.remove('active');
-        VsImg.classList.remove('active');
-        InitialImg.src = IsImg.src;
-        FinalImg.src = VsImg.src;
+        IsBtn.classList.add('active');
+        deltaBtn.classList.remove('active');
+        starBtn.classList.remove('active');
+        seriesBtn.classList.remove('active');
+        parallelBtn.classList.remove('active');
+        VsBtn.classList.remove('active');
+        InitialImg.src = 'Images/Is.png';
+        FinalImg.src = 'Images/Vs.png';
         InitialImg.style.display = 'block';
         FinalImg.style.display = 'block';
         arrowsImg.style.display = 'block';
@@ -308,7 +316,7 @@
         const rc = parseFloat(document.getElementById('rc').value);
 
         if (isNaN(ra) || isNaN(rb) || isNaN(rc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for RA, RB, and RC.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for RA, RB, and RC.</div>';
             return;
         }
 
@@ -316,7 +324,7 @@
         const rac = ((ra * rb) + (rb * rc) + (ra * rc)) / rb;
         const rbc = ((ra * rb) + (rb * rc) + (ra * rc)) / ra;
 
-        outputDiv.innerHTML = `<div class="alert alert-success">RAB = ${rab.toFixed(2)}<br>RAC = ${rac.toFixed(2)}<br>RBC = ${rbc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">RAB = ${rab.toFixed(2)}<br>RAC = ${rac.toFixed(2)}<br>RBC = ${rbc.toFixed(2)}</div>`;
     });
 
     document.getElementById('delta-submit').addEventListener('click', function() {
@@ -325,7 +333,7 @@
         const rbc = parseFloat(document.getElementById('rbc').value);
 
         if (isNaN(rab) || isNaN(rac) || isNaN(rbc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for RAB, RAC, and RBC.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for RAB, RAC, and RBC.</div>';
             return;
         }
 
@@ -333,7 +341,7 @@
         const rb = (rab * rbc) / (rab + rac + rbc);
         const rc = (rbc * rac) / (rab + rac + rbc);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">RA = ${ra.toFixed(2)}<br>RB = ${rb.toFixed(2)}<br>RC = ${rc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">RA = ${ra.toFixed(2)}<br>RB = ${rb.toFixed(2)}<br>RC = ${rc.toFixed(2)}</div>`;
     });
 
     document.getElementById('series-submit').addEventListener('click', function() {
@@ -341,13 +349,13 @@
         const rs2 = parseFloat(document.getElementById('rs2').value);
 
         if (isNaN(rs1) || isNaN(rs2)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for R1 and R2.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for R1 and R2.</div>';
             return;
         }
 
         const req = (rs1+rs2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">R = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">R = ${req.toFixed(2)}</div>`;
     });
 
     document.getElementById('parallel-submit').addEventListener('click', function() {
@@ -355,13 +363,13 @@
         const rp2 = parseFloat(document.getElementById('rp2').value);
 
         if (isNaN(rp1) || isNaN(rp2)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for R1 and R2.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for R1 and R2.</div>';
             return;
         }
 
         const req = (rp1*rp2)/(rp1+rp2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">R = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">R = ${req.toFixed(2)}</div>`;
     });
 
     document.getElementById('Vs-submit').addEventListener('click', function() {
@@ -369,13 +377,13 @@
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(V) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Vs and Rs.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for Vs and Rs.</div>';
             return;
         }
 
         const I = (V/R);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Is = ${I.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">Is = ${I.toFixed(2)}</div>`;
     });
 
     document.getElementById('Is-submit').addEventListener('click', function() {
@@ -383,13 +391,13 @@
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(I) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger">Please enter valid values for Is and Rs.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for Is and Rs.</div>';
             return;
         }
 
         const V = (I*R);
 
-        outputDiv.innerHTML = `<div class="alert alert-success">Vs = ${V.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">Vs = ${V.toFixed(2)}</div>`;
     });
 
 </script>
