@@ -24,43 +24,43 @@
 
 
 <div class="container-fluid my-5">
-    <h1 class="text-center mb-4" style='color:green; font-size: 600%;'>Circuit Conversions</h1>
+    <h1 class="text-center text-success display-1 display-md-3 fw-bold">Circuit Conversions</h1>
+
     
-    <div class="row pb-5" style="width: 25%; float:left;">
-        <div class="col-12 text-center">
-            
-            <button id="star-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>Star</h4>
+    <div class="row pb-5">
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="star-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>Star</h4>
             </button>
         </div>
-        <div class="col-12 text-center">
-            <button id="delta-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>Delta</h4>
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="delta-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>Delta</h4>
             </button>
         </div>
-        <div class="col-12 text-center">
-            <button id="series-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>Series</h4>
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="series-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>Series</h4>
             </button>
         </div>
-        <div class="col-12 text-center">
-            <button id="parallel-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>Parallel</h4>
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="parallel-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>Parallel</h4>
             </button>
         </div>
-        <div class="col-12 text-center">
-            <button id="Vs-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>V-Source</h4>
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="Vs-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>V-Source</h4>
             </button>
         </div>
-        <div class="col-12 text-center">
-            <button id="Is-btn" class="btn btn-outline-success" style="width: 125%; height: 100%;">
-                <h4 style='color:white; font-size:500%'>I-Source</h4>
+        <div class="col-6 col-lg-4 text-center p-0">
+            <button id="Is-btn" class="btn btn-outline-success" style="width: 100%; height: 100%;">
+                <h4 style='color:white;'>I-Source</h4>
             </button>
         </div>
     </div>
 
-    <div class="row pb-5" style="width: 66%; float: right;">
+    <div class="row pb-5">
         <div class="col-4 text-center">
             <img id="initial-img" src="Images/star.png" alt="Initial" width="100%">
         </div>
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div id="star-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="star-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Star Values</h3>
         <div class="mb-3">
             <label for="ra" class="form-label" style='color:green'>RA:</label>
@@ -89,7 +89,7 @@
         <button id="star-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to Delta</button>
     </div>
 
-    <div id="delta-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="delta-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Delta Values</h3>
         <div class="mb-3">
             <label for="rab" class="form-label" style='color:green'>RAB:</label>
@@ -106,7 +106,7 @@
         <button id="delta-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to Star</button>
     </div>
 
-    <div id="series-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="series-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Series Values</h3>
         <div class="mb-3">
             <label for="rs1" class="form-label" style='color:green'>R1:</label>
@@ -119,7 +119,7 @@
         <button id="series-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Combine Series Resistors</button>
     </div>
 
-    <div id="parallel-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="parallel-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Parallel Values</h3>
         <div class="mb-3">
             <label for="rp1" class="form-label" style='color:green'>R1:</label>
@@ -132,7 +132,7 @@
         <button id="parallel-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Combine Parallel Resistors</button>
     </div>
 
-    <div id="Vs-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="Vs-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Vs Values</h3>
         <div class="mb-3">
             <label for="V" class="form-label" style='color:green'>Vs:</label>
@@ -145,7 +145,7 @@
         <button id="Vs-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to current source</button>
     </div>
 
-    <div id="Is-form" class="form-container mt-4" style="width: 66%; float: right;">
+    <div id="Is-form" class="form-container mt-4">
         <h3 style='color:green'>Enter Is Values</h3>
         <div class="mb-3">
             <label for="I" class="form-label" style='color:green'>Is:</label>
@@ -316,7 +316,7 @@
         const rc = parseFloat(document.getElementById('rc').value);
 
         if (isNaN(ra) || isNaN(rb) || isNaN(rc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for RA, RB, and RC.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for RA, RB, and RC.</div>';
             return;
         }
 
@@ -324,7 +324,7 @@
         const rac = ((ra * rb) + (rb * rc) + (ra * rc)) / rb;
         const rbc = ((ra * rb) + (rb * rc) + (ra * rc)) / ra;
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">RAB = ${rab.toFixed(2)}<br>RAC = ${rac.toFixed(2)}<br>RBC = ${rbc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">RAB = ${rab.toFixed(2)}<br>RAC = ${rac.toFixed(2)}<br>RBC = ${rbc.toFixed(2)}</div>`;
     });
 
     document.getElementById('delta-submit').addEventListener('click', function() {
@@ -333,7 +333,7 @@
         const rbc = parseFloat(document.getElementById('rbc').value);
 
         if (isNaN(rab) || isNaN(rac) || isNaN(rbc)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for RAB, RAC, and RBC.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for RAB, RAC, and RBC.</div>';
             return;
         }
 
@@ -341,7 +341,7 @@
         const rb = (rab * rbc) / (rab + rac + rbc);
         const rc = (rbc * rac) / (rab + rac + rbc);
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">RA = ${ra.toFixed(2)}<br>RB = ${rb.toFixed(2)}<br>RC = ${rc.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">RA = ${ra.toFixed(2)}<br>RB = ${rb.toFixed(2)}<br>RC = ${rc.toFixed(2)}</div>`;
     });
 
     document.getElementById('series-submit').addEventListener('click', function() {
@@ -349,13 +349,13 @@
         const rs2 = parseFloat(document.getElementById('rs2').value);
 
         if (isNaN(rs1) || isNaN(rs2)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for R1 and R2.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for R1 and R2.</div>';
             return;
         }
 
         const req = (rs1+rs2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">R = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">R = ${req.toFixed(2)}</div>`;
     });
 
     document.getElementById('parallel-submit').addEventListener('click', function() {
@@ -363,13 +363,13 @@
         const rp2 = parseFloat(document.getElementById('rp2').value);
 
         if (isNaN(rp1) || isNaN(rp2)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for R1 and R2.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for R1 and R2.</div>';
             return;
         }
 
         const req = (rp1*rp2)/(rp1+rp2);
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">R = ${req.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">R = ${req.toFixed(2)}</div>`;
     });
 
     document.getElementById('Vs-submit').addEventListener('click', function() {
@@ -377,13 +377,13 @@
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(V) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for Vs and Rs.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for Vs and Rs.</div>';
             return;
         }
 
         const I = (V/R);
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">Is = ${I.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">Is = ${I.toFixed(2)}</div>`;
     });
 
     document.getElementById('Is-submit').addEventListener('click', function() {
@@ -391,13 +391,13 @@
         const R = parseFloat(document.getElementById('R').value);
 
         if (isNaN(I) || isNaN(R)) {
-            outputDiv.innerHTML = '<div class="alert alert-danger mt-5" style="width: 66%; float: right;">Please enter valid values for Is and Rs.</div>';
+            outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for Is and Rs.</div>';
             return;
         }
 
         const V = (I*R);
 
-        outputDiv.innerHTML = `<div class="alert alert-success mt-5" style="width: 66%; float: right;">Vs = ${V.toFixed(2)}</div>`;
+        outputDiv.innerHTML = `<div class="alert alert-success mt-5">Vs = ${V.toFixed(2)}</div>`;
     });
 
 </script>
