@@ -152,8 +152,8 @@
             <input type="number" id="I" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <div class="mb-3">
-            <label for="R" class="form-label" style='color:green'>Rs:</label>
-            <input type="number" id="R" class="form-control" style="background-color:seagreen; border-color: green; color:white">
+            <label for="R-Is" class="form-label" style='color:green'>Rs:</label>
+            <input type="number" id="R-Is" class="form-control" style="background-color:seagreen; border-color: green; color:white">
         </div>
         <button id="Is-submit" class="btn btn-primary" style='background-color:green; border-color: green;'>Convert to voltage source</button>
     </div>
@@ -388,7 +388,7 @@
 
     document.getElementById('Is-submit').addEventListener('click', function() {
         const I = parseFloat(document.getElementById('I').value);
-        const R = parseFloat(document.getElementById('R').value);
+        const R = parseFloat(document.getElementById('R-Is').value);
 
         if (isNaN(I) || isNaN(R)) {
             outputDiv.innerHTML = '<div class="alert alert-danger mt-5">Please enter valid values for Is and Rs.</div>';
